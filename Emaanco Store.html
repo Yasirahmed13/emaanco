@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F2EC;color:#2B1631;font-family:'Bricolage Grotesque',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#2B1631;text-decoration:none}
+a:hover{color:#C8463F}
+button{font-family:inherit;cursor:pointer}
+input{font-family:inherit}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F7F2EC;color:#2B1631">
+
+<sc-if value="{{ showAnnouncement }}" hint-placeholder-val="{{ true }}">
+<div style="background:#2B1631;color:#F7F2EC;font-size:13px;letter-spacing:0.04em;padding:10px 20px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center">
+<span>Free delivery on orders over {{ freeShipLabel }}</span>
+<span style="color:#F2A79A">Buy any 2, get the 3rd free</span>
+<span>Gelatin-free &amp; vegan options</span>
+</div>
+</sc-if>
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(247,242,236,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6DCD2">
+<div style="max-width:1320px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+<a href="#" style="font-size:30px;font-weight:700;letter-spacing:-0.04em;display:flex;align-items:baseline;gap:2px">emaan<span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C8463F">co</span></a>
+<nav style="display:flex;gap:24px;font-size:15px;font-weight:500;flex:1;flex-wrap:wrap">
+<a href="#shop">Shop all</a>
+<a href="#categories">Categories</a>
+<a href="#bestsellers">Best sellers</a>
+<a href="#bundle">Bundles</a>
+<a href="#reviews">Reviews</a>
+</nav>
+<div style="display:flex;align-items:center;gap:10px">
+<div style="display:flex;align-items:center;gap:8px;background:#EFE6DC;border-radius:999px;padding:9px 16px;font-size:14px;color:#6E5A70;min-width:180px">
+<span style="width:12px;height:12px;border:2px solid #6E5A70;border-radius:50%;display:inline-block"></span>
+<span>Search gummies…</span>
+</div>
+<button onClick="{{ openCart }}" style="display:flex;align-items:center;gap:8px;background:#2B1631;color:#F7F2EC;border:none;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600">Cart <span style="background:#F2A79A;color:#2B1631;border-radius:999px;min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;padding:0 6px">{{ cartCount }}</span></button>
+</div>
+</div>
+</header>
+
+<section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:56px 28px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:28px">
+<span style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C8463F">Chewable wellness · 45 formulas</span>
+<h1 style="margin:0;font-size:clamp(48px,6.4vw,92px);line-height:0.95;letter-spacing:-0.045em;font-weight:600;text-wrap:balance">Daily rituals you'll <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.02em;color:#C8463F">actually</span> look forward to.</h1>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#5E4A60;max-width:480px;text-wrap:pretty">Glow, sleep, detox, focus and more — in a gummy that tastes like a treat. Pick your goal, we'll handle the rest.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="#bestsellers" style="background:#2B1631;color:#F7F2EC;padding:17px 30px;border-radius:999px;font-weight:600;font-size:16px" style-hover="background:#C8463F;color:#fff">Shop best sellers</a>
+<a href="#categories" style="border:1.5px solid #2B1631;padding:16px 28px;border-radius:999px;font-weight:600;font-size:16px" style-hover="background:#2B1631;color:#F7F2EC">Find your goal</a>
+</div>
+<div style="display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:#5E4A60;padding-top:6px">
+<span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#C8463F"></span>GMP manufactured</span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#C8463F"></span>Non-GMO</span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#C8463F"></span>Cash on delivery</span>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:end;min-height:460px">
+<div style="background:#F6DCE0;border-radius:999px 999px 28px 28px;height:340px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden">
+<img src="products/p43.jpeg" style="width:120%;max-width:none;mix-blend-mode:multiply;margin-bottom:-6%">
+</div>
+<div style="background:#E5DAF0;border-radius:999px 999px 28px 28px;height:460px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;position:relative">
+<span style="position:absolute;top:44px;left:50%;transform:translateX(-50%) rotate(-6deg);background:#C8463F;color:#fff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;white-space:nowrap">#1 best seller</span>
+<img src="products/p46.jpeg" style="width:118%;max-width:none;mix-blend-mode:multiply;margin-bottom:-4%">
+</div>
+<div style="background:#F8E1D2;border-radius:999px 999px 28px 28px;height:380px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden">
+<img src="products/p44.jpeg" style="width:120%;max-width:none;mix-blend-mode:multiply;margin-bottom:-6%">
+</div>
+</div>
+</section>
+
+<section id="categories" data-screen-label="Categories" style="max-width:1320px;margin:0 auto;padding:56px 28px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+<h2 style="margin:0;font-size:clamp(34px,4vw,54px);letter-spacing:-0.04em;font-weight:600;line-height:1">Shop by <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">goal</span></h2>
+<span style="font-size:15px;color:#5E4A60">Seven rituals. One gummy a day.</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px">
+<sc-for list="{{ categories }}" as="c" hint-placeholder-count="7">
+<button onClick="{{ c.pick }}" style="background:{{ c.tint }};border:none;border-radius:24px;padding:20px 18px 0;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;color:#2B1631;overflow:hidden;height:260px;position:relative;transition:transform .25s" style-hover="transform:translateY(-4px)">
+<span style="font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.1">{{ c.name }}</span>
+<span style="font-size:13px;color:#5E4A60">{{ c.count }} products</span>
+<img src="{{ c.img }}" style="position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);width:84%;mix-blend-mode:multiply">
+</button>
+</sc-for>
+</div>
+</section>
+
+<section id="bestsellers" data-screen-label="Best sellers" style="max-width:1320px;margin:0 auto;padding:56px 28px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C8463F">Loved by thousands</span>
+<h2 style="margin:0;font-size:clamp(34px,4vw,54px);letter-spacing:-0.04em;font-weight:600;line-height:1">Best <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">sellers</span></h2>
+</div>
+<a href="#shop" style="font-weight:600;font-size:15px;border-bottom:1.5px solid currentColor;padding-bottom:2px">View all products</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 20px">
+<sc-for list="{{ bestSellers }}" as="p" hint-placeholder-count="8">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;aspect-ratio:1/1.1;border-radius:24px;background:{{ p.tint }};overflow:hidden;display:flex;align-items:center;justify-content:center">
+<img src="{{ p.img }}" style="width:94%;height:94%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s" style-hover="transform:scale(1.05)">
+<span style="position:absolute;top:14px;left:14px;font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:#2B1631">{{ p.rankLabel }}</span>
+<button onClick="{{ p.add }}" style="position:absolute;right:12px;bottom:12px;background:#2B1631;color:#F7F2EC;border:none;border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600" style-hover="background:#C8463F">{{ p.addLabel }}</button>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;padding:0 4px">
+<div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+<span style="font-size:18px;font-weight:600;letter-spacing:-0.02em;line-height:1.2">{{ p.name }}</span>
+<span style="font-size:17px;font-weight:600;white-space:nowrap">{{ p.priceLabel }}</span>
+</div>
+<span style="font-size:14px;color:#5E4A60">{{ p.sub }}</span>
+<span style="font-size:13px;color:#2B1631;padding-top:2px"><span style="color:#C8463F;letter-spacing:1px">★★★★★</span> {{ p.rating }} · {{ p.reviews }} reviews</span>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="bundle" data-screen-label="Bundle" style="max-width:1320px;margin:40px auto;padding:0 28px">
+<div style="background:#2B1631;color:#F7F2EC;border-radius:36px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:center;overflow:hidden">
+<div style="display:flex;flex-direction:column;gap:22px">
+<span style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#F2A79A">Build your ritual</span>
+<h2 style="margin:0;font-size:clamp(38px,4.6vw,64px);letter-spacing:-0.04em;font-weight:600;line-height:0.98">Any 3 bottles. <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#F2A79A">Pay for 2.</span></h2>
+<p style="margin:0;font-size:18px;line-height:1.5;color:#D9CBD8;max-width:440px">Mix across categories — glow by day, calm by night, detox on the weekend. Applied automatically at checkout.</p>
+<div><button onClick="{{ addBundle }}" style="background:#F2A79A;color:#2B1631;border:none;border-radius:999px;padding:17px 30px;font-size:16px;font-weight:600" style-hover="background:#F7F2EC">Add the Glow + Calm + Detox set</button></div>
+</div>
+<div style="display:flex;justify-content:center;align-items:flex-end;gap:0">
+<div style="width:34%;background:#F6DCE0;border-radius:999px 999px 20px 20px;aspect-ratio:1/1.5;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;transform:rotate(-5deg)"><img src="products/p40.jpeg" style="width:130%;max-width:none;mix-blend-mode:multiply"></div>
+<div style="width:36%;background:#E5DAF0;border-radius:999px 999px 20px 20px;aspect-ratio:1/1.6;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;margin:0 -10px;z-index:1"><img src="products/p32.jpeg" style="width:130%;max-width:none;mix-blend-mode:multiply"></div>
+<div style="width:34%;background:#DCEBDD;border-radius:999px 999px 20px 20px;aspect-ratio:1/1.5;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;transform:rotate(5deg)"><img src="products/p37.jpeg" style="width:130%;max-width:none;mix-blend-mode:multiply"></div>
+</div>
+</div>
+</section>
+
+<section id="shop" ref="{{ shopRef }}" data-screen-label="Shop all" style="max-width:1320px;margin:0 auto;padding:72px 28px 56px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px">
+<h2 style="margin:0;font-size:clamp(34px,4vw,54px);letter-spacing:-0.04em;font-weight:600;line-height:1">{{ shopTitle }}</h2>
+<span style="font-size:15px;color:#5E4A60">{{ shopCount }}</span>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #E6DCD2">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
+<button onClick="{{ t.pick }}" style="background:{{ t.bg }};color:{{ t.color }};border:1.5px solid #2B1631;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600">{{ t.label }}</button>
+</sc-for>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax({{ cardMin }},1fr));gap:28px 18px">
+<sc-for list="{{ shopItems }}" as="p" hint-placeholder-count="12">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;aspect-ratio:1/1.05;border-radius:20px;background:{{ p.tint }};overflow:hidden;display:flex;align-items:center;justify-content:center">
+<img src="{{ p.img }}" style="width:92%;height:92%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s" style-hover="transform:scale(1.05)">
+<sc-if value="{{ p.badge }}" hint-placeholder-val="{{ false }}">
+<span style="position:absolute;top:12px;left:12px;background:#C8463F;color:#fff;font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px">{{ p.badge }}</span>
+</sc-if>
+<button onClick="{{ p.add }}" style="position:absolute;right:10px;bottom:10px;background:#F7F2EC;color:#2B1631;border:none;border-radius:999px;width:44px;height:44px;font-size:22px;font-weight:500;line-height:1" style-hover="background:#2B1631;color:#F7F2EC">{{ p.addIcon }}</button>
+</div>
+<div style="display:flex;flex-direction:column;gap:3px;padding:0 2px">
+<span style="font-size:12px;color:#8A7489;text-transform:uppercase;letter-spacing:0.08em">{{ p.catName }}</span>
+<span style="font-size:16px;font-weight:600;letter-spacing:-0.01em;line-height:1.25">{{ p.name }}</span>
+<span style="font-size:13px;color:#5E4A60;line-height:1.35">{{ p.sub }}</span>
+<div style="display:flex;justify-content:space-between;align-items:center;padding-top:4px">
+<span style="font-size:16px;font-weight:600">{{ p.priceLabel }}</span>
+<span style="font-size:12px;color:#5E4A60"><span style="color:#C8463F">★</span> {{ p.rating }}</span>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section data-screen-label="Promise" style="border-top:1px solid #E6DCD2;border-bottom:1px solid #E6DCD2;background:#F1E9E0">
+<div style="max-width:1320px;margin:0 auto;padding:44px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px">
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#C8463F">01</span><span style="font-size:18px;font-weight:600">Tastes like a treat</span><span style="font-size:14px;color:#5E4A60;line-height:1.45">Real fruit flavours — raspberry, peach, berry, orange.</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#C8463F">02</span><span style="font-size:18px;font-weight:600">Clean formulas</span><span style="font-size:14px;color:#5E4A60;line-height:1.45">Non-GMO, gluten-free and pectin-based options.</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#C8463F">03</span><span style="font-size:18px;font-weight:600">Discreet delivery</span><span style="font-size:14px;color:#5E4A60;line-height:1.45">Plain packaging on every order, every time.</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#C8463F">04</span><span style="font-size:18px;font-weight:600">30-day promise</span><span style="font-size:14px;color:#5E4A60;line-height:1.45">Not for you? We'll make it right.</span></div>
+</div>
+</section>
+
+<section id="reviews" data-screen-label="Reviews" style="max-width:1320px;margin:0 auto;padding:72px 28px">
+<h2 style="margin:0 0 32px;font-size:clamp(34px,4vw,54px);letter-spacing:-0.04em;font-weight:600;line-height:1">In their <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">words</span></h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+<div style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"The magnesium ones finally fixed my 2am wake-ups. And they taste like raspberry candy."</p><span style="font-size:14px;color:#5E4A60">Ayesha K. · Magnesium Glycinate Calm</span></div>
+<div style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"Three weeks on the collagen + biotin and my nails stopped breaking. Reordered two bottles."</p><span style="font-size:14px;color:#5E4A60">Sana R. · Collagen + Biotin + Vit C</span></div>
+<div style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"My kids actually remind ME about their vitamins now. Fast delivery too."</p><span style="font-size:14px;color:#5E4A60">Hamza T. · Kids Multivitamin</span></div>
+</div>
+</section>
+
+<footer style="background:#2B1631;color:#F7F2EC">
+<div style="max-width:1320px;margin:0 auto;padding:64px 28px 32px;display:flex;flex-direction:column;gap:48px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px">
+<div style="display:flex;flex-direction:column;gap:18px">
+<span style="font-size:clamp(40px,5vw,72px);font-weight:700;letter-spacing:-0.05em;line-height:0.9">emaan<span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#F2A79A">co</span></span>
+<p style="margin:0;font-size:16px;color:#D9CBD8;max-width:340px;line-height:1.5">Get 10% off your first order, plus early access to new flavours.</p>
+<div style="display:flex;gap:8px;max-width:420px;background:#3D2443;border-radius:999px;padding:6px">
+<input placeholder="Your email" style="flex:1;min-width:0;background:transparent;border:none;outline:none;color:#F7F2EC;font-size:15px;padding:0 16px">
+<button style="background:#F2A79A;color:#2B1631;border:none;border-radius:999px;padding:12px 22px;font-weight:600;font-size:14px">Subscribe</button>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;font-size:15px">
+<div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#F2A79A">Shop</span><a href="#" style="color:#F7F2EC">Beauty &amp; Glow</a><a href="#" style="color:#F7F2EC">Sleep &amp; Calm</a><a href="#" style="color:#F7F2EC">Detox &amp; Gut</a><a href="#" style="color:#F7F2EC">Kids</a></div>
+<div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#F2A79A">Help</span><a href="#" style="color:#F7F2EC">Track order</a><a href="#" style="color:#F7F2EC">Shipping</a><a href="#" style="color:#F7F2EC">Returns</a><a href="#" style="color:#F7F2EC">FAQ</a></div>
+<div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#F2A79A">Emaanco</span><a href="#" style="color:#F7F2EC">About</a><a href="#" style="color:#F7F2EC">Contact</a><a href="#" style="color:#F7F2EC">Instagram</a><a href="#" style="color:#F7F2EC">WhatsApp</a></div>
+</div>
+</div>
+<div style="border-top:1px solid #4A2F50;padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#B9A6B7;line-height:1.5">
+<span>© 2026 Emaanco. All rights reserved.</span>
+<span style="max-width:640px">These statements have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure or prevent any disease.</span>
+</div>
+</div>
+</footer>
+
+<sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end">
+<div onClick="{{ closeCart }}" style="position:absolute;inset:0;background:rgba(43,22,49,0.45)"></div>
+<aside style="position:relative;width:min(100%,420px);height:100%;background:#F7F2EC;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid #E6DCD2">
+<span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">Your cart ({{ cartCount }})</span>
+<button onClick="{{ closeCart }}" style="background:none;border:none;font-size:15px;font-weight:600;color:#2B1631;padding:8px">Close</button>
+</div>
+<div style="padding:14px 24px;background:#F1E9E0;font-size:13px;color:#5E4A60">{{ shipMsg }}</div>
+<div style="flex:1;overflow:auto;padding:12px 24px;display:flex;flex-direction:column;gap:14px">
+<sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ false }}"><p style="margin:40px 0;text-align:center;color:#5E4A60">Your cart is empty — start with a best seller.</p></sc-if>
+<sc-for list="{{ cartLines }}" as="l" hint-placeholder-count="0">
+<div style="display:flex;gap:14px;align-items:center">
+<div style="width:76px;height:76px;flex:none;border-radius:14px;background:{{ l.tint }};display:flex;align-items:center;justify-content:center"><img src="{{ l.img }}" style="width:90%;mix-blend-mode:multiply"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0">
+<span style="font-size:15px;font-weight:600;line-height:1.2">{{ l.name }}</span>
+<div style="display:flex;align-items:center;gap:10px;font-size:14px">
+<button onClick="{{ l.dec }}" style="width:28px;height:28px;border-radius:50%;border:1.5px solid #2B1631;background:none;color:#2B1631">−</button>
+<span>{{ l.qty }}</span>
+<button onClick="{{ l.inc }}" style="width:28px;height:28px;border-radius:50%;border:1.5px solid #2B1631;background:none;color:#2B1631">+</button>
+</div>
+</div>
+<span style="font-weight:600;font-size:15px">{{ l.total }}</span>
+</div>
+</sc-for>
+</div>
+<div style="padding:20px 24px 28px;border-top:1px solid #E6DCD2;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;font-size:17px;font-weight:600"><span>Subtotal</span><span>{{ subtotal }}</span></div>
+<button style="background:#2B1631;color:#F7F2EC;border:none;border-radius:999px;padding:17px;font-size:16px;font-weight:600" style-hover="background:#C8463F">Checkout</button>
+</div>
+</aside>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;currency&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;$&quot;,&quot;Rs.&quot;,&quot;₱&quot;,&quot;£&quot;],&quot;default&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;gridDensity&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Compact&quot;,&quot;Comfortable&quot;,&quot;Spacious&quot;],&quot;default&quot;:&quot;Comfortable&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showAnnouncement&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const CATS={
+glow:{name:'Beauty & Glow',tint:'#F6DCE0',img:'products/p39.jpeg'},
+sleep:{name:'Sleep & Calm',tint:'#E5DAF0',img:'products/p32.jpeg'},
+detox:{name:'Detox & Gut',tint:'#DCEBDD',img:'products/p46.jpeg'},
+energy:{name:'Energy & Focus',tint:'#F8E4CC',img:'products/p26.jpeg'},
+kids:{name:'Kids',tint:'#D9E8F2',img:'products/p29.jpeg'},
+men:{name:"Men's Vitality",tint:'#E4DED7',img:'products/p21.jpeg'},
+women:{name:"Women's Curves",tint:'#F4D9CF',img:'products/p17.jpeg'}};
+const P=[
+[1,'Probiotic Gummies','Digestive health · mixed berry','detox',22.99],
+[2,'Magnesium Glycinate 600mg','Calm, sleep & muscle support','sleep',27.99],
+[3,'Hip Butt Gummies','Hips & thighs curve support','women',29.99],
+[4,'Height Growth Kids','Vitamin C · D3 · K2 bone support','kids',31.99,'Doctor formulated'],
+[5,'L-Glutathione 13-in-1','Brightening, anti-aging, immune','glow',28.99],
+[6,'Brain Memory','Memory, energy & focus','energy',26.99],
+[7,'Pueraria Papaya','Natural firming for women','women',32.99],
+[8,'Sleep Deep 5-HTP','Melatonin + L-theanine + magnesium','sleep',24.99],
+[9,'Liver Detox Duo','14-in-1 liver support · 2 bottles','detox',44.99,'Bundle'],
+[10,'Shilajit Max Strength','10-in-1 with ashwagandha & ginseng','men',34.99],
+[12,'Mushroom 10-Blend','Focus, clarity & memory','energy',29.99],
+[13,'Collagen Fruit-Pectin','Daily beauty, gelatin-free','glow',24.99],
+[14,'Keto Gummies 3500mg','Detox & cleanse','detox',25.99],
+[15,'Collagen Peach','Skin, hair & nail · vegan','glow',23.99],
+[16,'Creatine 5000mg','Strength & endurance · 120 ct','men',36.99,'New'],
+[17,'Menopause Support','Hormone balance','women',29.99],
+[18,'Omega-3 DHA Kids','Brain support for ages 2+','kids',21.99],
+[19,'D3 + B12','Energy, mood, heart & bones','energy',19.99],
+[20,'Hemp Relax Gummies','Powerful relief · 60 sweets','sleep',27.99],
+[21,'Shilajit 1400mg','Himalayan, with chaga & ashwagandha','men',32.99],
+[22,'Horny Goat Weed','Extra strength · sugar free','men',31.99],
+[23,'Skin Brightening Gummies','Glutathione, collagen & biotin','glow',27.99],
+[24,'CoQ10 250mg Liquid-Filled','Plus omega-3, B3 & zinc','energy',34.99],
+[25,'Extreme Curve Maca Plus','15:1 high-potency concentrate','women',33.99],
+[26,'CoQ10 100mg','Heart & cellular energy','energy',24.99],
+[27,'Vitamin C + Zinc','Immune booster with echinacea','energy',18.99],
+[28,'Hemp Sleep Trio','Tasty & relaxing · 3 bottles','sleep',64.99,'Bundle'],
+[29,'Kids Multivitamin 3Y+','Sugar free, complete formula','kids',21.99],
+[30,'Quercetin 1000mg','Vitamin C, zinc & elderberry','energy',25.99],
+[31,'Massive Girth','Men\u2019s performance with ashwagandha','men',34.99],
+[32,'Melatonin 6mg','Natural berry · nighttime sleep','sleep',17.99],
+[33,'Creatine Blueberry','1g creatine per gummy','men',29.99],
+[34,'BBL Gummies','Peach hip shape · vitamin E','women',29.99],
+[35,'Omega + DHA Kids','Focus formula · orange','kids',21.99],
+[36,'Organic Sea Moss 3000mg','Bladderwrack, burdock & ACV','detox',26.99],
+[37,'Apple Cider Vinegar 1000mg','Detox & healthy weight','detox',22.99],
+[38,'Maca Plus 1500mg','Black maca, aguaje & fenugreek','women',30.99],
+[39,'Collagen & Biotin Duo','Vegan strawberry · 2 bottles','glow',42.99,'Bundle'],
+[40,'Glutathione Collagen Glow','Cranberry · anti-aging','glow',27.99],
+[41,'Kids Multivitamin','Daily multi · 90 gummies','kids',22.99],
+[42,'Maca Curves','Made for butt & hips','women',28.99],
+[43,'Glutathione Gummies','Marine collagen & vitamins','glow',26.99],
+[44,'Magnesium Glycinate Calm','400mg · sugar free raspberry','sleep',24.99],
+[45,'Collagen + Biotin + Vit C','Hair, skin & nail support','glow',23.99],
+[46,'Liver Detox 28-in-1','Milk thistle + apple cider vinegar','detox',26.99]
+].map(([id,name,sub,cat,price,badge],i)=>({id,name,sub,cat,price,badge:badge||'',img:`products/p${String(id).padStart(2,'0')}.jpeg`,tint:CATS[cat].tint,catName:CATS[cat].name,rating:(4.6+((id*7)%4)/10).toFixed(1),reviews:120+((id*137)%1900)}));
+const BEST=[46,45,44,10,40,37,32,36];
+const RATES={'$':1,'Rs.':280,'₱':57,'£':0.79};
+class Component extends DCLogic{
+state={cat:'all',cart:{},cartOpen:false};
+shopRef=React.createRef();
+fmt(v){const s=this.props.currency??'$',r=RATES[s]||1;return r>=10?`${s} ${(Math.round(v*r/10)*10).toLocaleString()}`:`${s}${(v*r).toFixed(2)}`}
+add(id){this.setState(s=>({cart:{...s.cart,[id]:(s.cart[id]||0)+1}}))}
+setQty(id,d){this.setState(s=>{const c={...s.cart};c[id]=(c[id]||0)+d;if(c[id]<=0)delete c[id];return{cart:c}})}
+pick(cat){this.setState({cat});const el=this.shopRef.current;if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'})}
+renderVals(){
+const {cat,cart}=this.state;
+const view=p=>({...p,priceLabel:this.fmt(p.price),add:()=>this.add(p.id),addIcon:cart[p.id]?'✓':'+',addLabel:cart[p.id]?`Added · ${cart[p.id]}`:'Add to cart'});
+const items=P.filter(p=>cat==='all'||p.cat===cat);
+const lines=Object.keys(cart).map(id=>{const p=P.find(x=>x.id==id);return{...p,qty:cart[id],total:this.fmt(p.price*cart[id]),inc:()=>this.setQty(p.id,1),dec:()=>this.setQty(p.id,-1)}});
+const sub=lines.reduce((a,l)=>a+l.price*l.qty,0),FREE=50;
+const count=lines.reduce((a,l)=>a+l.qty,0);
+const cols=this.props.gridDensity??'Comfortable';
+return{
+showAnnouncement:this.props.showAnnouncement??true,
+freeShipLabel:this.fmt(FREE),
+categories:Object.entries(CATS).map(([k,c])=>({...c,count:P.filter(p=>p.cat===k).length,pick:()=>this.pick(k)})),
+bestSellers:BEST.map((id,i)=>({...view(P.find(p=>p.id===id)),rankLabel:`No.${i+1}`})),
+tabs:[['all','All'],...Object.entries(CATS).map(([k,c])=>[k,c.name])].map(([k,l])=>({label:l,bg:cat===k?'#2B1631':'transparent',color:cat===k?'#F7F2EC':'#2B1631',pick:()=>this.setState({cat:k})})),
+shopTitle:cat==='all'?'Shop all':CATS[cat].name,
+shopCount:`${items.length} products`,
+shopItems:items.map(view),
+cardMin:cols==='Compact'?'170px':cols==='Spacious'?'280px':'220px',
+shopRef:this.shopRef,
+cartCount:count,cartOpen:this.state.cartOpen,cartLines:lines,cartEmpty:!lines.length,
+subtotal:this.fmt(sub),
+shipMsg:sub>=FREE?'You\u2019ve unlocked free delivery.':`You\u2019re ${this.fmt(FREE-sub)} away from free delivery.`,
+openCart:()=>this.setState({cartOpen:true}),closeCart:()=>this.setState({cartOpen:false}),
+addBundle:()=>{[40,32,37].forEach(id=>this.add(id));this.setState({cartOpen:true})}
+}}}
+</script>
+</body>
+</html>
