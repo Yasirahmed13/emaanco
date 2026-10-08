@@ -17,12 +17,80 @@ a{color:#2B1631;text-decoration:none}
 a:hover{color:#C8463F}
 button{font-family:inherit;cursor:pointer}
 input{font-family:inherit}
+/* Responsive overrides — layout is set with inline styles, so these need !important to win */
+.scroll-x{scrollbar-width:none}
+.scroll-x::-webkit-scrollbar{display:none}
+@media (max-width:960px){
+html{scroll-padding-top:110px}
+.hdr{gap:12px 20px!important;padding:12px 28px!important}
+.hdr-actions{margin-left:auto}
+.hdr-nav{order:3;flex:1 1 100%!important;flex-wrap:nowrap!important;white-space:nowrap;overflow-x:auto;gap:22px!important;margin:0 -28px;padding:2px 28px 4px}
+.hdr-nav a{flex:none}
+}
+@media (max-width:640px){
+.announce{font-size:12px!important;padding:8px 16px!important;gap:2px 14px!important}
+.announce span:nth-child(3){display:none}
+.hdr{padding:10px 16px!important}
+.logo{font-size:26px!important}
+.hdr-nav{gap:18px!important;font-size:14px!important;margin:0 -16px;padding:2px 16px 4px}
+.hdr-search{display:none!important}
+.hdr-actions button{padding:9px 16px!important}
+.sec{padding-left:16px!important;padding-right:16px!important}
+.sec-head{margin-bottom:20px!important}
+.hero{padding-top:32px!important;padding-bottom:24px!important;gap:32px!important}
+.hero-copy{gap:20px!important}
+.hero-title{font-size:clamp(40px,12vw,48px)!important}
+.hero-lede{font-size:17px!important}
+.hero-ctas a{flex:1 1 200px;text-align:center;padding:15px 22px!important}
+.hero-art{min-height:0!important;gap:10px!important}
+.hero-art>div:nth-child(1){height:220px!important}
+.hero-art>div:nth-child(2){height:300px!important}
+.hero-art>div:nth-child(3){height:250px!important}
+.hero-badge{top:28px!important;font-size:11px!important;padding:5px 10px!important}
+.sec-cats,.sec-best{padding-top:36px!important;padding-bottom:36px!important}
+.cat-grid{grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:42%;gap:10px!important;overflow-x:auto;scroll-snap-type:x mandatory;margin:-4px -16px 0;padding:4px 16px 0;scroll-padding:0 16px}
+.cat-card{height:210px!important;padding:16px 14px 0!important;border-radius:20px!important;scroll-snap-align:start}
+.cat-name{font-size:17px!important}
+.cat-img{width:92%!important;bottom:-12px!important}
+.best-grid,.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px 12px!important}
+.best-rank{font-size:22px!important;top:10px!important;left:12px!important}
+.best-add{padding:8px 12px!important;font-size:12px!important;right:8px!important;bottom:8px!important}
+.best-title{flex-direction:column;align-items:flex-start!important;gap:2px!important}
+.best-name,.best-price{font-size:15px!important}
+.best-sub{font-size:12px!important}
+.best-rating{font-size:12px!important}
+.bundle{margin:16px auto!important}
+.bundle-card{border-radius:28px!important;padding:32px 22px!important;gap:28px!important}
+.bundle-title span{white-space:nowrap}
+.bundle-lede{font-size:16px!important}
+.bundle-btn{width:100%;padding:16px 20px!important;font-size:15px!important}
+.sec-shop{padding-top:48px!important;padding-bottom:40px!important}
+.shop-tabs{flex-wrap:nowrap!important;overflow-x:auto;margin:0 -16px 24px!important;padding:0 16px 18px!important}
+.shop-tabs button{flex:none;white-space:nowrap;padding:9px 16px!important;font-size:13px!important}
+.shop-badge{top:8px!important;left:8px!important;font-size:10px!important;padding:4px 9px!important}
+.shop-add{width:38px!important;height:38px!important;font-size:20px!important;right:8px!important;bottom:8px!important}
+.shop-cat{font-size:10px!important}
+.shop-name{font-size:14px!important}
+.shop-sub{font-size:12px!important}
+.promise{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px 16px!important;padding:32px 16px!important}
+.promise>div>span:nth-child(2){font-size:16px!important}
+.promise>div>span:nth-child(3){font-size:13px!important}
+.sec-reviews{padding-top:48px!important;padding-bottom:48px!important}
+.sec-reviews h2{margin-bottom:24px!important}
+.review{padding:22px!important;gap:14px!important}
+.review p{font-size:21px!important}
+.foot{padding:48px 16px 28px!important;gap:36px!important}
+.foot-links{gap:16px!important;font-size:14px!important}
+.cart-pad{padding-left:18px!important;padding-right:18px!important}
+.cart-foot{padding-bottom:max(24px,env(safe-area-inset-bottom))!important}
+.qty{width:34px!important;height:34px!important}
+}
 </style>
 </helmet>
 <div style="min-height:100vh;background:#F7F2EC;color:#2B1631">
 
 <sc-if value="{{ showAnnouncement }}" hint-placeholder-val="{{ true }}">
-<div style="background:#2B1631;color:#F7F2EC;font-size:13px;letter-spacing:0.04em;padding:10px 20px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center">
+<div class="announce" style="background:#2B1631;color:#F7F2EC;font-size:13px;letter-spacing:0.04em;padding:10px 20px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center">
 <span>Free delivery on orders over {{ freeShipLabel }}</span>
 <span style="color:#F2A79A">Buy any 2, get the 3rd free</span>
 <span>Gelatin-free &amp; vegan options</span>
@@ -30,17 +98,17 @@ input{font-family:inherit}
 </sc-if>
 
 <header style="position:sticky;top:0;z-index:20;background:rgba(247,242,236,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6DCD2">
-<div style="max-width:1320px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
-<a href="#" style="font-size:30px;font-weight:700;letter-spacing:-0.04em;display:flex;align-items:baseline;gap:2px">emaan<span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C8463F">co</span></a>
-<nav style="display:flex;gap:24px;font-size:15px;font-weight:500;flex:1;flex-wrap:wrap">
+<div class="hdr" style="max-width:1320px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+<a href="#" class="logo" style="font-size:30px;font-weight:700;letter-spacing:-0.04em;display:flex;align-items:baseline;gap:2px">emaan<span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C8463F">co</span></a>
+<nav class="hdr-nav scroll-x" style="display:flex;gap:24px;font-size:15px;font-weight:500;flex:1;flex-wrap:wrap">
 <a href="#shop">Shop all</a>
 <a href="#categories">Categories</a>
 <a href="#bestsellers">Best sellers</a>
 <a href="#bundle">Bundles</a>
 <a href="#reviews">Reviews</a>
 </nav>
-<div style="display:flex;align-items:center;gap:10px">
-<div style="display:flex;align-items:center;gap:8px;background:#EFE6DC;border-radius:999px;padding:9px 16px;font-size:14px;color:#6E5A70;min-width:180px">
+<div class="hdr-actions" style="display:flex;align-items:center;gap:10px">
+<div class="hdr-search" style="display:flex;align-items:center;gap:8px;background:#EFE6DC;border-radius:999px;padding:9px 16px;font-size:14px;color:#6E5A70;min-width:180px">
 <span style="width:12px;height:12px;border:2px solid #6E5A70;border-radius:50%;display:inline-block"></span>
 <span>Search gummies…</span>
 </div>
@@ -49,12 +117,12 @@ input{font-family:inherit}
 </div>
 </header>
 
-<section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:56px 28px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px;align-items:center">
-<div style="display:flex;flex-direction:column;gap:28px">
+<section data-screen-label="Hero" class="sec hero" style="max-width:1320px;margin:0 auto;padding:56px 28px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px;align-items:center">
+<div class="hero-copy" style="display:flex;flex-direction:column;gap:28px">
 <span style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C8463F">Chewable wellness · 45 formulas</span>
-<h1 style="margin:0;font-size:clamp(48px,6.4vw,92px);line-height:0.95;letter-spacing:-0.045em;font-weight:600;text-wrap:balance">Daily rituals you'll <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.02em;color:#C8463F">actually</span> look forward to.</h1>
-<p style="margin:0;font-size:19px;line-height:1.5;color:#5E4A60;max-width:480px;text-wrap:pretty">Glow, sleep, detox, focus and more — in a gummy that tastes like a treat. Pick your goal, we'll handle the rest.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap">
+<h1 class="hero-title" style="margin:0;font-size:clamp(48px,6.4vw,92px);line-height:0.95;letter-spacing:-0.045em;font-weight:600;text-wrap:balance">Daily rituals you'll <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.02em;color:#C8463F">actually</span> look forward to.</h1>
+<p class="hero-lede" style="margin:0;font-size:19px;line-height:1.5;color:#5E4A60;max-width:480px;text-wrap:pretty">Glow, sleep, detox, focus and more — in a gummy that tastes like a treat. Pick your goal, we'll handle the rest.</p>
+<div class="hero-ctas" style="display:flex;gap:12px;flex-wrap:wrap">
 <a href="#bestsellers" style="background:#2B1631;color:#F7F2EC;padding:17px 30px;border-radius:999px;font-weight:600;font-size:16px" style-hover="background:#C8463F;color:#fff">Shop best sellers</a>
 <a href="#categories" style="border:1.5px solid #2B1631;padding:16px 28px;border-radius:999px;font-weight:600;font-size:16px" style-hover="background:#2B1631;color:#F7F2EC">Find your goal</a>
 </div>
@@ -64,12 +132,12 @@ input{font-family:inherit}
 <span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#C8463F"></span>Cash on delivery</span>
 </div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:end;min-height:460px">
+<div class="hero-art" style="display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:end;min-height:460px">
 <div style="background:#F6DCE0;border-radius:999px 999px 28px 28px;height:340px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden">
 <img src="products/p43.jpeg" style="width:120%;max-width:none;mix-blend-mode:multiply;margin-bottom:-6%">
 </div>
 <div style="background:#E5DAF0;border-radius:999px 999px 28px 28px;height:460px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;position:relative">
-<span style="position:absolute;top:44px;left:50%;transform:translateX(-50%) rotate(-6deg);background:#C8463F;color:#fff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;white-space:nowrap">#1 best seller</span>
+<span class="hero-badge" style="position:absolute;top:44px;left:50%;transform:translateX(-50%) rotate(-6deg);background:#C8463F;color:#fff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;white-space:nowrap">#1 best seller</span>
 <img src="products/p46.jpeg" style="width:118%;max-width:none;mix-blend-mode:multiply;margin-bottom:-4%">
 </div>
 <div style="background:#F8E1D2;border-radius:999px 999px 28px 28px;height:380px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden">
@@ -78,58 +146,58 @@ input{font-family:inherit}
 </div>
 </section>
 
-<section id="categories" data-screen-label="Categories" style="max-width:1320px;margin:0 auto;padding:56px 28px">
-<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+<section id="categories" data-screen-label="Categories" class="sec sec-cats" style="max-width:1320px;margin:0 auto;padding:56px 28px">
+<div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
 <h2 style="margin:0;font-size:clamp(34px,4vw,54px);letter-spacing:-0.04em;font-weight:600;line-height:1">Shop by <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">goal</span></h2>
 <span style="font-size:15px;color:#5E4A60">Seven rituals. One gummy a day.</span>
 </div>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px">
+<div class="cat-grid scroll-x" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px">
 <sc-for list="{{ categories }}" as="c" hint-placeholder-count="7">
-<button onClick="{{ c.pick }}" style="background:{{ c.tint }};border:none;border-radius:24px;padding:20px 18px 0;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;color:#2B1631;overflow:hidden;height:260px;position:relative;transition:transform .25s" style-hover="transform:translateY(-4px)">
-<span style="font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.1">{{ c.name }}</span>
+<button onClick="{{ c.pick }}" class="cat-card" style="background:{{ c.tint }};border:none;border-radius:24px;padding:20px 18px 0;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;color:#2B1631;overflow:hidden;height:260px;position:relative;transition:transform .25s" style-hover="transform:translateY(-4px)">
+<span class="cat-name" style="font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.1">{{ c.name }}</span>
 <span style="font-size:13px;color:#5E4A60">{{ c.count }} products</span>
-<img src="{{ c.img }}" style="position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);width:84%;mix-blend-mode:multiply">
+<img src="{{ c.img }}" class="cat-img" style="position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);width:84%;mix-blend-mode:multiply">
 </button>
 </sc-for>
 </div>
 </section>
 
-<section id="bestsellers" data-screen-label="Best sellers" style="max-width:1320px;margin:0 auto;padding:56px 28px">
-<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+<section id="bestsellers" data-screen-label="Best sellers" class="sec sec-best" style="max-width:1320px;margin:0 auto;padding:56px 28px">
+<div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
 <div style="display:flex;flex-direction:column;gap:10px">
 <span style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C8463F">Loved by thousands</span>
 <h2 style="margin:0;font-size:clamp(34px,4vw,54px);letter-spacing:-0.04em;font-weight:600;line-height:1">Best <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">sellers</span></h2>
 </div>
 <a href="#shop" style="font-weight:600;font-size:15px;border-bottom:1.5px solid currentColor;padding-bottom:2px">View all products</a>
 </div>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 20px">
+<div class="best-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 20px">
 <sc-for list="{{ bestSellers }}" as="p" hint-placeholder-count="8">
 <div style="display:flex;flex-direction:column;gap:14px">
 <div style="position:relative;aspect-ratio:1/1.1;border-radius:24px;background:{{ p.tint }};overflow:hidden;display:flex;align-items:center;justify-content:center">
 <img src="{{ p.img }}" style="width:94%;height:94%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s" style-hover="transform:scale(1.05)">
-<span style="position:absolute;top:14px;left:14px;font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:#2B1631">{{ p.rankLabel }}</span>
-<button onClick="{{ p.add }}" style="position:absolute;right:12px;bottom:12px;background:#2B1631;color:#F7F2EC;border:none;border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600" style-hover="background:#C8463F">{{ p.addLabel }}</button>
+<span class="best-rank" style="position:absolute;top:14px;left:14px;font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:#2B1631">{{ p.rankLabel }}</span>
+<button onClick="{{ p.add }}" class="best-add" style="position:absolute;right:12px;bottom:12px;background:#2B1631;color:#F7F2EC;border:none;border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600" style-hover="background:#C8463F">{{ p.addLabel }}</button>
 </div>
 <div style="display:flex;flex-direction:column;gap:4px;padding:0 4px">
-<div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
-<span style="font-size:18px;font-weight:600;letter-spacing:-0.02em;line-height:1.2">{{ p.name }}</span>
-<span style="font-size:17px;font-weight:600;white-space:nowrap">{{ p.priceLabel }}</span>
+<div class="best-title" style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+<span class="best-name" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;line-height:1.2">{{ p.name }}</span>
+<span class="best-price" style="font-size:17px;font-weight:600;white-space:nowrap">{{ p.priceLabel }}</span>
 </div>
-<span style="font-size:14px;color:#5E4A60">{{ p.sub }}</span>
-<span style="font-size:13px;color:#2B1631;padding-top:2px"><span style="color:#C8463F;letter-spacing:1px">★★★★★</span> {{ p.rating }} · {{ p.reviews }} reviews</span>
+<span class="best-sub" style="font-size:14px;color:#5E4A60">{{ p.sub }}</span>
+<span class="best-rating" style="font-size:13px;color:#2B1631;padding-top:2px"><span style="color:#C8463F;letter-spacing:1px">★★★★★</span> {{ p.rating }} · {{ p.reviews }} reviews</span>
 </div>
 </div>
 </sc-for>
 </div>
 </section>
 
-<section id="bundle" data-screen-label="Bundle" style="max-width:1320px;margin:40px auto;padding:0 28px">
-<div style="background:#2B1631;color:#F7F2EC;border-radius:36px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:center;overflow:hidden">
+<section id="bundle" data-screen-label="Bundle" class="sec bundle" style="max-width:1320px;margin:40px auto;padding:0 28px">
+<div class="bundle-card" style="background:#2B1631;color:#F7F2EC;border-radius:36px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:center;overflow:hidden">
 <div style="display:flex;flex-direction:column;gap:22px">
 <span style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#F2A79A">Build your ritual</span>
-<h2 style="margin:0;font-size:clamp(38px,4.6vw,64px);letter-spacing:-0.04em;font-weight:600;line-height:0.98">Any 3 bottles. <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#F2A79A">Pay for 2.</span></h2>
-<p style="margin:0;font-size:18px;line-height:1.5;color:#D9CBD8;max-width:440px">Mix across categories — glow by day, calm by night, detox on the weekend. Applied automatically at checkout.</p>
-<div><button onClick="{{ addBundle }}" style="background:#F2A79A;color:#2B1631;border:none;border-radius:999px;padding:17px 30px;font-size:16px;font-weight:600" style-hover="background:#F7F2EC">Add the Glow + Calm + Detox set</button></div>
+<h2 class="bundle-title" style="margin:0;font-size:clamp(38px,4.6vw,64px);letter-spacing:-0.04em;font-weight:600;line-height:0.98">Any 3 bottles. <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#F2A79A">Pay for 2.</span></h2>
+<p class="bundle-lede" style="margin:0;font-size:18px;line-height:1.5;color:#D9CBD8;max-width:440px">Mix across categories — glow by day, calm by night, detox on the weekend. Applied automatically at checkout.</p>
+<div><button onClick="{{ addBundle }}" class="bundle-btn" style="background:#F2A79A;color:#2B1631;border:none;border-radius:999px;padding:17px 30px;font-size:16px;font-weight:600" style-hover="background:#F7F2EC">Add the Glow + Calm + Detox set</button></div>
 </div>
 <div style="display:flex;justify-content:center;align-items:flex-end;gap:0">
 <div style="width:34%;background:#F6DCE0;border-radius:999px 999px 20px 20px;aspect-ratio:1/1.5;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;transform:rotate(-5deg)"><img src="products/p40.jpeg" style="width:130%;max-width:none;mix-blend-mode:multiply"></div>
@@ -139,30 +207,30 @@ input{font-family:inherit}
 </div>
 </section>
 
-<section id="shop" ref="{{ shopRef }}" data-screen-label="Shop all" style="max-width:1320px;margin:0 auto;padding:72px 28px 56px">
-<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px">
+<section id="shop" ref="{{ shopRef }}" data-screen-label="Shop all" class="sec sec-shop" style="max-width:1320px;margin:0 auto;padding:72px 28px 56px">
+<div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px">
 <h2 style="margin:0;font-size:clamp(34px,4vw,54px);letter-spacing:-0.04em;font-weight:600;line-height:1">{{ shopTitle }}</h2>
 <span style="font-size:15px;color:#5E4A60">{{ shopCount }}</span>
 </div>
-<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #E6DCD2">
+<div class="shop-tabs scroll-x" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #E6DCD2">
 <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
 <button onClick="{{ t.pick }}" style="background:{{ t.bg }};color:{{ t.color }};border:1.5px solid #2B1631;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600">{{ t.label }}</button>
 </sc-for>
 </div>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax({{ cardMin }},1fr));gap:28px 18px">
+<div class="shop-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax({{ cardMin }},1fr));gap:28px 18px">
 <sc-for list="{{ shopItems }}" as="p" hint-placeholder-count="12">
 <div style="display:flex;flex-direction:column;gap:12px">
 <div style="position:relative;aspect-ratio:1/1.05;border-radius:20px;background:{{ p.tint }};overflow:hidden;display:flex;align-items:center;justify-content:center">
 <img src="{{ p.img }}" style="width:92%;height:92%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s" style-hover="transform:scale(1.05)">
 <sc-if value="{{ p.badge }}" hint-placeholder-val="{{ false }}">
-<span style="position:absolute;top:12px;left:12px;background:#C8463F;color:#fff;font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px">{{ p.badge }}</span>
+<span class="shop-badge" style="position:absolute;top:12px;left:12px;background:#C8463F;color:#fff;font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px">{{ p.badge }}</span>
 </sc-if>
-<button onClick="{{ p.add }}" style="position:absolute;right:10px;bottom:10px;background:#F7F2EC;color:#2B1631;border:none;border-radius:999px;width:44px;height:44px;font-size:22px;font-weight:500;line-height:1" style-hover="background:#2B1631;color:#F7F2EC">{{ p.addIcon }}</button>
+<button onClick="{{ p.add }}" class="shop-add" style="position:absolute;right:10px;bottom:10px;background:#F7F2EC;color:#2B1631;border:none;border-radius:999px;width:44px;height:44px;font-size:22px;font-weight:500;line-height:1" style-hover="background:#2B1631;color:#F7F2EC">{{ p.addIcon }}</button>
 </div>
 <div style="display:flex;flex-direction:column;gap:3px;padding:0 2px">
-<span style="font-size:12px;color:#8A7489;text-transform:uppercase;letter-spacing:0.08em">{{ p.catName }}</span>
-<span style="font-size:16px;font-weight:600;letter-spacing:-0.01em;line-height:1.25">{{ p.name }}</span>
-<span style="font-size:13px;color:#5E4A60;line-height:1.35">{{ p.sub }}</span>
+<span class="shop-cat" style="font-size:12px;color:#8A7489;text-transform:uppercase;letter-spacing:0.08em">{{ p.catName }}</span>
+<span class="shop-name" style="font-size:16px;font-weight:600;letter-spacing:-0.01em;line-height:1.25">{{ p.name }}</span>
+<span class="shop-sub" style="font-size:13px;color:#5E4A60;line-height:1.35">{{ p.sub }}</span>
 <div style="display:flex;justify-content:space-between;align-items:center;padding-top:4px">
 <span style="font-size:16px;font-weight:600">{{ p.priceLabel }}</span>
 <span style="font-size:12px;color:#5E4A60"><span style="color:#C8463F">★</span> {{ p.rating }}</span>
@@ -174,7 +242,7 @@ input{font-family:inherit}
 </section>
 
 <section data-screen-label="Promise" style="border-top:1px solid #E6DCD2;border-bottom:1px solid #E6DCD2;background:#F1E9E0">
-<div style="max-width:1320px;margin:0 auto;padding:44px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px">
+<div class="promise" style="max-width:1320px;margin:0 auto;padding:44px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px">
 <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#C8463F">01</span><span style="font-size:18px;font-weight:600">Tastes like a treat</span><span style="font-size:14px;color:#5E4A60;line-height:1.45">Real fruit flavours — raspberry, peach, berry, orange.</span></div>
 <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#C8463F">02</span><span style="font-size:18px;font-weight:600">Clean formulas</span><span style="font-size:14px;color:#5E4A60;line-height:1.45">Non-GMO, gluten-free and pectin-based options.</span></div>
 <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:#C8463F">03</span><span style="font-size:18px;font-weight:600">Discreet delivery</span><span style="font-size:14px;color:#5E4A60;line-height:1.45">Plain packaging on every order, every time.</span></div>
@@ -182,17 +250,17 @@ input{font-family:inherit}
 </div>
 </section>
 
-<section id="reviews" data-screen-label="Reviews" style="max-width:1320px;margin:0 auto;padding:72px 28px">
+<section id="reviews" data-screen-label="Reviews" class="sec sec-reviews" style="max-width:1320px;margin:0 auto;padding:72px 28px">
 <h2 style="margin:0 0 32px;font-size:clamp(34px,4vw,54px);letter-spacing:-0.04em;font-weight:600;line-height:1">In their <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">words</span></h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
-<div style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"The magnesium ones finally fixed my 2am wake-ups. And they taste like raspberry candy."</p><span style="font-size:14px;color:#5E4A60">Ayesha K. · Magnesium Glycinate Calm</span></div>
-<div style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"Three weeks on the collagen + biotin and my nails stopped breaking. Reordered two bottles."</p><span style="font-size:14px;color:#5E4A60">Sana R. · Collagen + Biotin + Vit C</span></div>
-<div style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"My kids actually remind ME about their vitamins now. Fast delivery too."</p><span style="font-size:14px;color:#5E4A60">Hamza T. · Kids Multivitamin</span></div>
+<div class="review" style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"The magnesium ones finally fixed my 2am wake-ups. And they taste like raspberry candy."</p><span style="font-size:14px;color:#5E4A60">Ayesha K. · Magnesium Glycinate Calm</span></div>
+<div class="review" style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"Three weeks on the collagen + biotin and my nails stopped breaking. Reordered two bottles."</p><span style="font-size:14px;color:#5E4A60">Sana R. · Collagen + Biotin + Vit C</span></div>
+<div class="review" style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px"><span style="color:#C8463F;letter-spacing:2px">★★★★★</span><p style="margin:0;font-family:'Instrument Serif',serif;font-size:25px;line-height:1.25">"My kids actually remind ME about their vitamins now. Fast delivery too."</p><span style="font-size:14px;color:#5E4A60">Hamza T. · Kids Multivitamin</span></div>
 </div>
 </section>
 
 <footer style="background:#2B1631;color:#F7F2EC">
-<div style="max-width:1320px;margin:0 auto;padding:64px 28px 32px;display:flex;flex-direction:column;gap:48px">
+<div class="foot" style="max-width:1320px;margin:0 auto;padding:64px 28px 32px;display:flex;flex-direction:column;gap:48px">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px">
 <div style="display:flex;flex-direction:column;gap:18px">
 <span style="font-size:clamp(40px,5vw,72px);font-weight:700;letter-spacing:-0.05em;line-height:0.9">emaan<span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#F2A79A">co</span></span>
@@ -202,7 +270,7 @@ input{font-family:inherit}
 <button style="background:#F2A79A;color:#2B1631;border:none;border-radius:999px;padding:12px 22px;font-weight:600;font-size:14px">Subscribe</button>
 </div>
 </div>
-<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;font-size:15px">
+<div class="foot-links" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;font-size:15px">
 <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#F2A79A">Shop</span><a href="#" style="color:#F7F2EC">Beauty &amp; Glow</a><a href="#" style="color:#F7F2EC">Sleep &amp; Calm</a><a href="#" style="color:#F7F2EC">Detox &amp; Gut</a><a href="#" style="color:#F7F2EC">Kids</a></div>
 <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#F2A79A">Help</span><a href="#" style="color:#F7F2EC">Track order</a><a href="#" style="color:#F7F2EC">Shipping</a><a href="#" style="color:#F7F2EC">Returns</a><a href="#" style="color:#F7F2EC">FAQ</a></div>
 <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#F2A79A">Emaanco</span><a href="#" style="color:#F7F2EC">About</a><a href="#" style="color:#F7F2EC">Contact</a><a href="#" style="color:#F7F2EC">Instagram</a><a href="#" style="color:#F7F2EC">WhatsApp</a></div>
@@ -219,12 +287,12 @@ input{font-family:inherit}
 <div style="position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end">
 <div onClick="{{ closeCart }}" style="position:absolute;inset:0;background:rgba(43,22,49,0.45)"></div>
 <aside style="position:relative;width:min(100%,420px);height:100%;background:#F7F2EC;display:flex;flex-direction:column">
-<div style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid #E6DCD2">
+<div class="cart-pad" style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid #E6DCD2">
 <span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">Your cart ({{ cartCount }})</span>
 <button onClick="{{ closeCart }}" style="background:none;border:none;font-size:15px;font-weight:600;color:#2B1631;padding:8px">Close</button>
 </div>
-<div style="padding:14px 24px;background:#F1E9E0;font-size:13px;color:#5E4A60">{{ shipMsg }}</div>
-<div style="flex:1;overflow:auto;padding:12px 24px;display:flex;flex-direction:column;gap:14px">
+<div class="cart-pad" style="padding:14px 24px;background:#F1E9E0;font-size:13px;color:#5E4A60">{{ shipMsg }}</div>
+<div class="cart-pad" style="flex:1;overflow:auto;padding:12px 24px;display:flex;flex-direction:column;gap:14px">
 <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ false }}"><p style="margin:40px 0;text-align:center;color:#5E4A60">Your cart is empty — start with a best seller.</p></sc-if>
 <sc-for list="{{ cartLines }}" as="l" hint-placeholder-count="0">
 <div style="display:flex;gap:14px;align-items:center">
@@ -232,16 +300,16 @@ input{font-family:inherit}
 <div style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0">
 <span style="font-size:15px;font-weight:600;line-height:1.2">{{ l.name }}</span>
 <div style="display:flex;align-items:center;gap:10px;font-size:14px">
-<button onClick="{{ l.dec }}" style="width:28px;height:28px;border-radius:50%;border:1.5px solid #2B1631;background:none;color:#2B1631">−</button>
+<button onClick="{{ l.dec }}" class="qty" style="width:28px;height:28px;border-radius:50%;border:1.5px solid #2B1631;background:none;color:#2B1631">−</button>
 <span>{{ l.qty }}</span>
-<button onClick="{{ l.inc }}" style="width:28px;height:28px;border-radius:50%;border:1.5px solid #2B1631;background:none;color:#2B1631">+</button>
+<button onClick="{{ l.inc }}" class="qty" style="width:28px;height:28px;border-radius:50%;border:1.5px solid #2B1631;background:none;color:#2B1631">+</button>
 </div>
 </div>
 <span style="font-weight:600;font-size:15px">{{ l.total }}</span>
 </div>
 </sc-for>
 </div>
-<div style="padding:20px 24px 28px;border-top:1px solid #E6DCD2;display:flex;flex-direction:column;gap:14px">
+<div class="cart-pad cart-foot" style="padding:20px 24px 28px;border-top:1px solid #E6DCD2;display:flex;flex-direction:column;gap:14px">
 <div style="display:flex;justify-content:space-between;font-size:17px;font-weight:600"><span>Subtotal</span><span>{{ subtotal }}</span></div>
 <button style="background:#2B1631;color:#F7F2EC;border:none;border-radius:999px;padding:17px;font-size:16px;font-weight:600" style-hover="background:#C8463F">Checkout</button>
 </div>
